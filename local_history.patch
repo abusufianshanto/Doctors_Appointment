@@ -1,0 +1,56 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	
++++ b/src/Main.java	(date 1709894115291)
+@@ -14,7 +14,7 @@
+         int cityNumber;
+         do {
+             System.out.println("Please choose the city (Type the number):");
+-            System.out.println("1. Dhanmondi\n2. Gulshan\n3. Mirpur");
++            System.out.println("1. Dhanmondi\n2. Gulshan\n3. Mirpur\n4. Banani");
+             cityNumber = input.nextInt();
+             switch (cityNumber) {
+                 case 1:
+@@ -29,10 +29,13 @@
+                     // Mirpur
+                     handleCitySelection(new Mirpur(fullName, age), input);
+                     break;
++                case 4:
++                    // Banani
++                    handleCitySelection(new Banani(fullName, age), input);
+                 default:
+                     System.out.println("Invalid choice. Please try again.");
+             }
+-        } while (cityNumber < 1 || cityNumber > 3);
++        } while (cityNumber < 1 || cityNumber > 4);
+ 
+         input.close();
+     }
+Index: src/Banani.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Banani.java b/src/Banani.java
+new file mode 100644
+--- /dev/null	(date 1709894029463)
++++ b/src/Banani.java	(date 1709894029463)
+@@ -0,0 +1,14 @@
++import java.util.ArrayList;
++
++public class Banani extends City {
++
++    private ArrayList<Doctors> doctors = new ArrayList<>();
++    public Banani(String patientName, int patientAge) {
++        super(patientName, patientAge);
++    }
++
++    @Override
++    public void welcomeMsg() {
++        System.out.println("\"__________Welcome to BestDoctor (Banani)__________\"");
++    }
++}
